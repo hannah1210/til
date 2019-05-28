@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello world!</title>
+    <style>
+
+        /* 1. tag name */
+        header {
+            color: red;
+            font-size: 20px;
+        }
+        /* 2. select all */
+        * {
+        margin:0;
+        padding:0;
+        }
+        /* 3. id selector */
+        #foot {
+        background-color:black;
+        color:white;
+        }
+        /* 4. class selector */
+        .art {
+        font-size: 30px;
+        color:green;
+        }
+        /* 5.parent child */
+        ol > li {
+        color:yellow;
+        }
+        p b{
+        color:gray;
+        }
+    </style>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+<!-- 시멘틱 태그 -->
+<header id="header">Header</header>
+<nav style="color: blue;">Nav</nav>
+<aside>aside</aside>
+<section>section
+    <article class="art">article</article>
+    <article class="art">article</article>
+    <article class="art">article</article>
+</section>
+
+<footer id="foot">footer</footer>
+    <!-- non-sementic tag -->
+    <div>
+        div 입니다.
+    </div>
+    <!-- 제목 -->
+    <h1>Hi, There!</h1>
+    <h2>h2</h2>
+    <h3>h3</h3>
+    <h4>h4</h4>
+    <h5>h5</h5>
+    <h6>h6</h6>
+
+    <!--본문 -->
+    <p>본문1<br>본문4<hr>
+</p>
+    <p>본문</p>
+    <p>본문</p>
+<!-- 글자 꾸미기 -->
+<p>이 글씨는 <b>굵은 글씨</b> 입니다. <br>
+이 글씨는 <strong>굵은 글씨</strong> 입니다.
+</p>
+<p>이 글씨는 <i><b>굵은</b>기울어진 글씨</i> 입니다. <br>
+이 글씨는 <em>기울어진 글씨</em> 입니다.
+</p>
+<p>
+    <del>취소선입니다.</del>
+</p>
+<!--목록 -->
+<ol>
+    <li>첫번째</li>
+    <li>두번째</li>
+    <li>세번째</li>
+</ol>
+<ul style ="list-style-type: none;">
+    <li>치킨</li>
+    <li>피자</li>
+    <li>햄버거</li>
+</ul>
+<a href="https://google.com">google로 가자</a>
+<a href="index2.html">Index2로 가자</a>
+<a href="#header">header로 가자</a>
+<a href="mailto:yanma.hannah@gmail.com">메일쓰기</a>
+
+<!-- 미디어 파일 -->
+<!-- 사진 -->
+<img src="캡처.PNG" alt="바나나" width="100px" height="100px">
+<!-- <video src=""></video> -->
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/g-_iSaEInLI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<!-- Form -->
+<form action="index2.html">
+    <input type="text" name="username" target="_blank">
+    <input type="password" name="password">
+    <input type="submit">
+</form>
+</body>
+</html>
