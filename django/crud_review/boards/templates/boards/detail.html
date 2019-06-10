@@ -1,0 +1,10 @@
+{% block body %}
+<h1>{{board.pk}}번째 글</h1>
+<h2>글 제목: {{board.title}}</h2>
+<p>글 내용: {{board.content}}</p>
+<P>글 생성 시각: {{board.created_at}}</P>
+<p>글 수정 시각: {{board.updated_at}}</p>
+<a href="/boards/{{board.pk}}/edit/">[글 수정]</a>
+<a href="/boards/{{board.pk}}/delete/">[글 삭제]</a>
+<a href="/boards/">[메인 페이지로]</a>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'boards/base.html' %}
+
+{% block body %}
+<a href="/boards/new/">[글 작성]</a>
+{% for board in boards %}
+<p>{{board.pk}}</p>
+<p>{{board.title}}</p>
+<a href="/boards/{{board.pk}}">[글 보기]</a><hr>
+{% endfor %}
+{% endblock %}

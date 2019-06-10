@@ -1,0 +1,12 @@
+{% block body %}
+
+<form action="/boards/{{board.pk}}/update/" method="POST">
+    {% csrf_token %}
+    <label for="title">글 제목</label><br>
+    <input type="text" name="title" id="title" value="{{board.title}}"><br>
+    <label for="content">글 내용</label><br>
+    <textarea name="content" id="content" cols="30" rows="10">{{board.content}}</textarea><br>
+    <input type="submit">
+</form>
+
+{% endblock %}
