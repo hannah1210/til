@@ -4,7 +4,34 @@
 <p>글 내용: {{board.content}}</p>
 <P>글 생성 시각: {{board.created_at}}</P>
 <p>글 수정 시각: {{board.updated_at}}</p>
-<a href="/boards/{{board.pk}}/edit/">[글 수정]</a>
-<a href="/boards/{{board.pk}}/delete/">[글 삭제]</a>
-<a href="/boards/">[메인 페이지로]</a>
+<hr>
+{% if board.image %}
+<img src = "{{board.image.url}}" alt="{{board.image}}">
+
+{% endif %}
+<p><b>댓글 목록</b></p>
+{% for comment in comments %}
+<li>{{comment.content}}</li>
+<a href="{% url 'boards:comment_edit' board.pk comment.pk %}">[댓글 수정]</a>
+<form action="{% url 'boards:comment_delete' board.pk comment.pk %}" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="댓글 삭제">
+</form>
+{% endfor %}
+<hr>
+<form action="{%url 'boards:comments' board.pk%}" method="POST">
+    {% csrf_token %}
+    댓글 : <input type="text" name="content">
+    <input type="submit" value="댓글 작성">
+</form>
+<hr>
+
+<hr>
+<a href={% url 'boards:edit' board.pk %}>[글 수정]</a>
+<form action="" method="POST">
+    {% csrf_token %}
+    <input type="submit"value="글 삭제">
+</form>
+
+<a href={% url "boards:index" %}>[메인 페이지로]</a>
 {% endblock %}

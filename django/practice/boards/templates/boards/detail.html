@@ -1,0 +1,30 @@
+{% extends 'boards/base.html' %}
+
+{% block body %}
+<h1>{{board.pk}}번째 글</h1>
+<h2>{{board.title}}</h2>
+<p>{{board.content}}</p>
+<p>{{board.created_at}}</p>
+<hr>
+{% for comment in board.comment_set.all %}
+<li>{{comment.content}}</li>
+<a href={% url 'boards:comments_edit' board.pk comment.pk %}>[댓글 수정]</a>
+<form action={% url 'boards:comments_delete' board.pk comment.pk %} method="POST">
+{% csrf_token %}
+    <input type="submit" value="댓글 삭제">
+</form>
+{% endfor %}
+
+댓글 달기:
+<form action={% url 'boards:comments' board.pk%} method="POST">
+    {% csrf_token %}
+    <input type="text" name="content">
+    <input type="submit" value="댓글 달기">
+</form>
+<hr>
+<a href={% url 'boards:edit' board.pk%}>[글 수정]</a>
+<form action={% url 'boards:delete' board.pk%} method="POST">
+    {% csrf_token %}
+    <input type="submit" value="글 삭제">
+</form>
+{% endblock %}

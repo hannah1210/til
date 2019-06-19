@@ -1,0 +1,8 @@
+{% extends 'movies/base.html' %}
+
+{% block body %}
+<a href={% url 'create' %}>[글 작성]</a><br>
+{% for movie in movies %}
+<a href={% url "detail" movie.pk %}>{{movie.title}}</a> {{movie.score}}<br>
+{% endfor %}
+{% endblock %}

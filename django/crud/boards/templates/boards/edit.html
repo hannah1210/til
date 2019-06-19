@@ -3,7 +3,7 @@
 {% block body %}
 <h1 class="text-center">EDIT</h1>
 <hr>
-<form action="/boards/{{board.pk}}/update/" method="POST">
+<form action="{% url 'boards:update' board.pk %}" method="POST">
     {% csrf_token %}
     <label for="title">Title</label><br>
     <input type="text" name="title" id="title" value="{{board.title}}"><br>

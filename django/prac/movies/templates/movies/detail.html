@@ -1,0 +1,15 @@
+<h1>영화명 : {{movie.title}}</h1>
+영화명(원문):{{movie.title_origin}}<br>
+TMDB 투표수 : {{movie.vote_count}}<br>
+개봉일 : {{movie.open_date}}<br>
+장르 : {{movie.genre}}<br>
+평점 : {{movie.score}}<br>
+포스터 이미지 URL : {{movie.poster_url}}<br>
+영화소개 : {{movie.description}}<br>
+<img src="{{movie.poster_url}}" alt="{{movie.poster_url}}">
+<a href="{% url 'index' %}">[글 목록]</a>
+<a href="{% url 'update' movie.pk%}">[글 수정]</a>
+<form action="{% url 'delete' movie.pk %}" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="삭제">
+</form>
